@@ -55,7 +55,7 @@ export default function ExpenseForm() {
 
         // Validar que no me pase del presupuesto
         if ( (expense.amount - previousAmount) > remainingBudget ) {
-            setError('Ese Campo se sale del presupuesto')
+            setError('Ese Campo se Sale del Presupuesto')
             return
         }
 
