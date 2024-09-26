@@ -19,12 +19,21 @@ export type BudgetState = {
 }
 // -- FIN DE TYPES
 
+const initialBudget = () : number => {
+    const localStorageBudget = localStorage.getItem('budget')
+    return localStorageBudget ? +localStorageBudget : 0
+}
+
+const localStorageExpenses = () : Expense[] => {
+    const localStorageExpenses = localStorage.getItem('expenses')
+    return localStorageExpenses ? JSON.parse(localStorageExpenses) : []
+}
 
 // Esto es como usar un un useState
 export const initialState : BudgetState = {
-    budget: 0,
+    budget: initialBudget(),
     modal: false,
-    expenses: [],
+    expenses: localStorageExpenses(),
     editingId: ''
 }
 
